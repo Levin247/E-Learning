@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>E-Learning Course Overview - Coral Theme</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Open+Sans&display=swap"
+        rel="stylesheet" />
+
+    <style>
+        :root {
+            --primary-color: #6a4bff;
+            --secondary-color: #fff4f0;
+            --accent-color: #ff7f50;
+            --cta-color: #ffb347;
+            --text-color: #2f2f2f;
+            --card-bg: #ffffff;
+            --shadow: rgba(0, 0, 0, 0.06);
+            --font-heading: 'Poppins', sans-serif;
+            --font-body: 'Open Sans', sans-serif;
+            --radius: 12px;
+            --transition: 0.3s ease;
+        }
+
+        body {
+            margin: 0;
+            font-family: var(--font-body);
+            background: var(--secondary-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header,
+        footer {
+            background: var(--primary-color);
+            color: #fff;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 1.6rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.8rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            color: #fff;
+            font-weight: 600;
+            text-decoration: none;
+            transition: opacity var(--transition);
+        }
+
+        nav a:hover {
+            opacity: 0.7;
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        /* HERO */
+        .course-hero {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            box-shadow: 0 4px 14px var(--shadow);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.8rem;
+            padding: 2rem;
+            align-items: center;
+        }
+
+        .course-hero img {
+            border-radius: var(--radius);
+            max-width: 340px;
+            width: 100%;
+            object-fit: cover;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+        }
+
+        .course-title {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            margin: 0 0 .5rem;
+            color: var(--primary-color);
+        }
+
+        .instructor-name {
+            font-weight: 600;
+            color: var(--accent-color);
+        }
+
+        .trust-badges {
+            margin-top: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: .6rem;
+        }
+
+        .badge {
+            background: var(--accent-color);
+            color: #fff;
+            padding: .3rem .9rem;
+            font-size: .85rem;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        /* DESCRIPTION */
+        .course-description {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            box-shadow: 0 4px 14px var(--shadow);
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .course-description h2 {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+
+        /* MODULES */
+        .course-modules {
+            margin-top: 2rem;
+        }
+
+        .course-modules h2 {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .modules-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.2rem;
+        }
+
+        .module-card {
+            background: var(--card-bg);
+            border: 2px solid var(--accent-color);
+            border-radius: var(--radius);
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            transition: transform var(--transition);
+        }
+
+        .module-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .module-icon {
+            background: var(--cta-color);
+            color: #fff;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: .8rem;
+        }
+
+        .module-title {
+            font-weight: 700;
+        }
+
+        /* INSTRUCTOR */
+        .instructor-bio {
+            margin-top: 2rem;
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            box-shadow: 0 4px 14px var(--shadow);
+            padding: 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.6rem;
+            align-items: center;
+        }
+
+        .instructor-image {
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border: 3px solid var(--accent-color);
+        }
+
+        .instructor-details h3 {
+            font-family: var(--font-heading);
+            color: var(--primary-color);
+            margin: 0 0 .4rem;
+        }
+
+        /* REVIEWS */
+        .student-reviews {
+            margin-top: 2rem;
+        }
+
+        .student-reviews h2 {
+            font-family: var(--font-heading);
+            color: var(--primary-color);
+        }
+
+        .reviews-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+
+        .review-card {
+            background: var(--card-bg);
+            border-left: 5px solid var(--accent-color);
+            border-radius: var(--radius);
+            box-shadow: 0 4px 12px var(--shadow);
+            padding: 1rem;
+        }
+
+        .review-rating {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        /* ENROLLMENT */
+        .enrollment {
+            margin-top: 2rem;
+            background: var(--card-bg);
+            border: 2px solid var(--primary-color);
+            border-radius: var(--radius);
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .enrollment h2 {
+            font-family: var(--font-heading);
+            color: var(--primary-color);
+        }
+
+        .enrollment-price {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--cta-color);
+        }
+
+        .enrollment-start {
+            color: #555;
+            margin-bottom: 1rem;
+        }
+
+        .btn-enroll {
+            background: var(--accent-color);
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            color: #fff;
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background var(--transition), transform var(--transition);
+        }
+
+        .btn-enroll:hover {
+            background: var(--cta-color);
+            transform: scale(1.05);
+        }
+
+        .trust-indicator {
+            margin-top: 0.6rem;
+            font-size: .9rem;
+            color: var(--primary-color);
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--primary-color);
+            text-align: center;
+            font-size: 0.9rem;
+            padding: 1rem;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        @media(max-width: 900px) {
+            .course-hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .instructor-bio {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">LearnNow</div>
+        <nav>
+            <ul>
+                <li><a href="#">Courses</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Support</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- HERO -->
+        <section class="course-hero">
+            <img src="https://img.freepik.com/free-photo/web-design-concept-with-drawings_1134-77.jpg"
+                alt="Course Image">
+            <div class="course-hero-content">
+                <h1 class="course-title">Full Stack Web Mastery</h1>
+                <p class="instructor-name">Instructor: John Smith</p>
+                <div class="trust-badges">
+                    <span class="badge">Top Rated</span>
+                    <span class="badge">Hands-On</span>
+                    <span class="badge">Career-Focused</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- DESCRIPTION -->
+        <section class="course-description">
+            <h2>Overview & Objectives</h2>
+            <p>Master the art of building web applications from start to finish. Learn HTML, CSS, JavaScript, React,
+                Node.js, and more in a practical, project-based curriculum.</p>
+        </section>
+
+        <!-- MODULES -->
+        <section class="course-modules">
+            <h2>Modules</h2>
+            <div class="modules-list">
+                <div class="module-card">
+                    <div class="module-icon">1</div>
+                    <div class="module-title">HTML & CSS Basics</div>
+                </div>
+                <div class="module-card">
+                    <div class="module-icon">2</div>
+                    <div class="module-title">JavaScript Essentials</div>
+                </div>
+                <div class="module-card">
+                    <div class="module-icon">3</div>
+                    <div class="module-title">React Framework</div>
+                </div>
+                <div class="module-card">
+                    <div class="module-icon">4</div>
+                    <div class="module-title">Backend with Node.js</div>
+                </div>
+                <div class="module-card">
+                    <div class="module-icon">5</div>
+                    <div class="module-title">Databases & APIs</div>
+                </div>
+                <div class="module-card">
+                    <div class="module-icon">6</div>
+                    <div class="module-title">Deployment</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- INSTRUCTOR -->
+        <section class="instructor-bio">
+            <img class="instructor-image" src="https://img-c.udemycdn.com/user/200_H/6764834_295b_8.jpg"
+                alt="Instructor">
+            <div class="instructor-details">
+                <h3>John Smith</h3>
+                <p>John is a senior full-stack engineer with 12+ years in the tech industry. He has mentored thousands
+                    of students worldwide and built large-scale apps for top companies.</p>
+            </div>
+        </section>
+
+        <!-- REVIEWS -->
+        <section class="student-reviews">
+            <h2>Student Reviews</h2>
+            <div class="reviews-list">
+                <div class="review-card">
+                    <p>"Changed my career path completely. Thanks to the real-world projects!"</p>
+                    <div class="review-rating">★★★★★</div>
+                </div>
+                <div class="review-card">
+                    <p>"John's teaching style is clear and engaging. Highly recommend!"</p>
+                    <div class="review-rating">★★★★☆</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ENROLL -->
+        <section class="enrollment">
+            <h2>Join Now</h2>
+            <p class="enrollment-price">$249</p>
+            <p class="enrollment-start">Starts: October 1, 2025</p>
+            <button class="btn-enroll">🚀 Enroll Today</button>
+            <div class="trust-indicator">✅ Secure Payment | 📜 Certificate | 💼 Job Assistance</div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2025 LearnNow. All rights reserved. | <a href="#">Privacy</a></p>
+    </footer>
+
+</body>
+
+</html>
